@@ -1,5 +1,22 @@
 const menuButton = document.querySelector(".menu-toggle");
 const navigation = document.querySelector(".primary-nav");
+const progressBar = document.querySelector(".scroll-progress");
+const pointerAura = document.querySelector(".pointer-aura");
+
+const updateScrollProgress = () => {
+  if (!progressBar) return;
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  progressBar.style.width = `${scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0}%`;
+};
+window.addEventListener("scroll", updateScrollProgress, { passive: true });
+updateScrollProgress();
+
+if (pointerAura && window.matchMedia("(pointer: fine)").matches) {
+  window.addEventListener("pointermove", (event) => {
+    pointerAura.style.left = `${event.clientX}px`;
+    pointerAura.style.top = `${event.clientY}px`;
+  }, { passive: true });
+}
 
 if (menuButton && navigation) {
   menuButton.addEventListener("click", () => {

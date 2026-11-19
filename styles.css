@@ -357,4 +357,13 @@ html { scroll-behavior: smooth; }
   .chart-path { stroke-dasharray: none; stroke-dashoffset: 0; }
 }
 
+/* Ensure text and primary action stay crisp on the light hero */
+.button-primary { color: #fff; background: #355cff; }
+.button-primary:hover { background: #2447e9; }
+.text-link { color: #394152; }
+.text-link span { color: #355cff; }
+.primary-nav { color: #394152; }
+.hero-footnote { color: #646a75; }
+.wordmark-name { color: #394152; }
+
 
